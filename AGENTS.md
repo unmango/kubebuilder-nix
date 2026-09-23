@@ -21,7 +21,9 @@ make update          # nix flake update
 
 ## Architecture
 
-- `lib/` - the library exposed as `flake.lib`. Every function takes `pkgs` first.
+- `lib/` - the library exposed as `flake.lib` by `lib/default.nix`.
+  Every function it exposes takes `pkgs` first.
+  The files below it are `callPackage` style, taking their dependencies as arguments.
   - `mk-scaffold.nix` - `mkScaffold pkgs { src, hash, version ? null, name ? }`. `src` holds `PROJECT` and `hack/boilerplate.go.txt`.
   - `kubebuilder-for.nix` - `kubebuilderFor pkgs version`, which overrides `pkgs.kubebuilder` with a pin from `versions.json`.
   - `versions.json` - source `hash` and `vendorHash` per Kubebuilder release.

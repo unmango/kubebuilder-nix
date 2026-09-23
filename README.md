@@ -21,4 +21,4 @@ The output is the full project tree as Kubebuilder would generate it, without `b
 ## Status
 
 The scaffold builder works and is reproducible for Kubebuilder 4.15.0 and 4.16.0.
-The flake-parts module and the upgrade app are designed in [docs/design.md](docs/design.md) but not yet written.
+`flakeModules.default` declares its options but produces no outputs yet, and the upgrade app is designed in [docs/design.md](docs/design.md) but not written.
