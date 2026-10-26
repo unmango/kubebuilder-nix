@@ -45,3 +45,17 @@ The build sets `SHELL` and `LOCALBIN` through `MAKEFLAGS`, because the generated
 1. Add the release to `lib/versions.json` with empty hashes, then build `kubebuilderFor pkgs "<version>"` to learn the real ones.
 2. Add a check in `checks/default.nix` with `pkgs.lib.fakeHash`, build it, and copy the reported hash.
 3. Confirm the scaffold is reproducible with `nix build .#checks.x86_64-linux.<name> --rebuild`.
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked in this repo's GitHub Issues. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five default triage labels, each named after its role (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `CONTEXT.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
