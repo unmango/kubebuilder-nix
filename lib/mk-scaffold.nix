@@ -1,10 +1,4 @@
-# Build the scaffold that `kubebuilder alpha generate` produces for a PROJECT
-# file.
-#
-# Scaffolding runs `go mod tidy`, `go get`, and `go install` for the tools the
-# generated Makefile pins, so this is a fixed-output
-# derivation and the caller supplies `hash`, the same way `vendorHash` works
-# for `buildGoModule`.
+# Fixed-output, since scaffolding runs `go mod tidy` and `go install`s the tools the generated Makefile pins.
 {
   lib,
   stdenvNoCC,
@@ -37,9 +31,7 @@ stdenvNoCC.mkDerivation {
     GIT_SSL_CAINFO = "${cacert}/etc/ssl/certs/ca-bundle.crt";
     SSL_CERT_FILE = "${cacert}/etc/ssl/certs/ca-bundle.crt";
 
-    # The generated Makefile sets `SHELL = /usr/bin/env bash`, which does not
-    # exist in the build sandbox. Its tools are `go install`ed at the versions
-    # it pins, into a LOCALBIN kept out of the output.
+    # The sandbox has no /usr/bin/env, and LOCALBIN keeps the installed tools out of the output.
     MAKEFLAGS = "SHELL=${lib.getExe bash} LOCALBIN=/build/tools";
   };
 

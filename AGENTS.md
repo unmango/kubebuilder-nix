@@ -24,10 +24,12 @@ make update          # nix flake update
 - `lib/` - the library exposed as `flake.lib` by `lib/default.nix`.
   Every function it exposes takes `pkgs` first.
   The files below it are `callPackage` style, taking their dependencies as arguments.
-  - `mk-scaffold.nix` - `mkScaffold pkgs { src, hash, version ? null, name ? }`. `src` holds `PROJECT` and `hack/boilerplate.go.txt`.
+  - `mk-scaffold.nix` - `mkScaffold pkgs { src, hash, version ? null, name ? }`.
+    `src` holds `PROJECT` and `hack/boilerplate.go.txt`.
   - `kubebuilder-for.nix` - `kubebuilderFor pkgs version`, which overrides `pkgs.kubebuilder` with a pin from `versions.json`.
   - `versions.json` - source `hash` and `vendorHash` per Kubebuilder release.
-- `modules/flake-module.nix` - the flake-parts module exposed as `flakeModules.default`. It only declares options so far.
+- `modules/flake-module.nix` - the flake-parts module exposed as `flakeModules.default`.
+  It only declares options so far.
 - `checks/` - one scaffold check per pinned Kubebuilder version, built from `examples/`.
 - `examples/memcached/` - a `PROJECT` with one API and the `helm/v2-alpha` plugin.
 - `docs/` - research notes and the design.
@@ -50,12 +52,15 @@ The build sets `SHELL` and `LOCALBIN` through `MAKEFLAGS`, because the generated
 
 ### Issue tracker
 
-Issues are tracked in this repo's GitHub Issues. See `docs/agents/issue-tracker.md`.
+Issues are tracked in this repo's GitHub Issues.
+See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
-The five default triage labels, each named after its role (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+The five default triage labels, each named after its role (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`).
+See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 
-Single-context: one `CONTEXT.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+Single-context: one `CONTEXT.md` and `docs/adr/` at the repo root.
+See `docs/agents/domain.md`.
