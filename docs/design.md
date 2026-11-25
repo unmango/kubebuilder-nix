@@ -49,7 +49,8 @@ The template can then import this repo's flake module in place of `hack/init.sh`
 
 `apps.kubebuilder-update` does the impure part of `alpha update`:
 
-1. Build the ancestor scaffold at `cliVersion` from `PROJECT` and the upgrade scaffold at the target release. Both are store paths.
+1. Build the ancestor scaffold at `cliVersion` from `PROJECT` and the upgrade scaffold at the target release.
+   Both are store paths.
 2. Commit each to a temporary branch in the working repository, the ancestor first and the upgrade on top of it.
 3. Merge the user's branch into the upgrade branch with git, and run `make manifests generate fmt vet lint-fix`.
 4. Leave the result on an output branch named like upstream's, `kubebuilder-update-from-<from>-to-<to>`.
